@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nassim's Stitches - High-End Crochet</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/Gemini_Generated_Image_eoegjueoegjueoeg.png">
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts for an elegant look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +15,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <img src="images/Gemini_Generated_Image_eoegjueoegjueoeg.png" alt="Nassim's Stitches Logo">
+    </div>
 
     <header class="site-header">
         <div class="container">
@@ -114,9 +121,17 @@
         </div>
     </footer>
 
-
-
-
+    <script>
+        // Hide the splash screen after a delay
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-screen');
+            setTimeout(() => {
+                splash.style.opacity = '0';
+                // Hide it from screen readers and prevent interaction after transition
+                splash.addEventListener('transitionend', () => splash.style.visibility = 'hidden');
+            }, 1500); // Keep splash screen for 1.5 seconds
+        });
+    </script>
 
 </body>
 </html>
