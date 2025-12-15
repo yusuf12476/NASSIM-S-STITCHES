@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Nassim's Stitches</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for an elegant look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/Gemini_Generated_Image_eoegjueoegjueoeg.png" alt="Nassim's Stitches Logo"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <header class="shop-header">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a> &raquo; <span>Shop</span>
+                </div>
+                <h1>Our Creations</h1>
+                <p>Discover our exclusive collection of handcrafted crochet items, made with love and precision.</p>
+            </div>
+        </header>
+
+        <div class="container shop-container">
+            <!-- Shop Sidebar for Filters -->
+            <aside class="shop-sidebar">
+                <div class="filter-widget">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">All</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Skirts</a></li>
+                        <li><a href="#">Bags</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="filter-widget">
+                    <h4>Filter by Price</h4>
+                    <!-- A price range slider could be implemented here with JavaScript -->
+                    <ul>
+                        <li><a href="#">Under Ksh 2,000</a></li>
+                        <li><a href="#">Ksh 2,000 - Ksh 5,000</a></li>
+                        <li><a href="#">Over Ksh 5,000</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Shop Products Grid -->
+            <section class="shop-products">
+                <!-- Sorting Controls -->
+                <div class="shop-controls">
+                    <p>Showing 1–7 of 7 results</p>
+                    <select name="orderby" class="orderby">
+                        <option value="menu_order" selected="selected">Default sorting</option>
+                        <option value="popularity">Sort by popularity</option>
+                        <option value="date">Sort by newness</option>
+                        <option value="price">Sort by price: low to high</option>
+                        <option value="price-desc">Sort by price: high to low</option>
+                    </select>
+                </div>
+
+                <div class="product-grid">
+                    <div class="product-card">
+                        <span class="product-badge">New</span>
+                        <img src="images/tote-bag.jpg" alt="Crochet Tote Bag" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Crochet Tote Bag</h3>
+                            <p class="product-price">Ksh 6,500</p>
+                            <a href="#" class="btn">View Item</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/top.jpg" alt="Handmade Crochet Top" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Handmade Crochet Top</h3>
+                            <p class="product-price">Ksh 5,850</p>
+                            <a href="#" class="btn">View Item</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/skirt.jpg" alt="Boho Crochet Skirt" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Boho Crochet Skirt</h3>
+                            <p class="product-price">Ksh 7,800</p>
+                            <a href="#" class="btn">View Item</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/beanie.jpg" alt="Cozy Crochet Beanie" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Cozy Crochet Beanie</h3>
+                            <p class="product-price">Ksh 3,250</p>
+                            <a href="#" class="btn">View Item</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/scrunchie.jpg" alt="Velvet Crochet Scrunchie" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Velvet Crochet Scrunchie</h3>
+                            <p class="product-price">Ksh 1,040</p>
+                            <a href="#" class="btn">View Item</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/handbag.jpg" alt="Chic Crochet Handbag" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Chic Crochet Handbag</h3>
+                            <p class="product-price">Ksh 7,150</p>
+                            <a href="#" class="btn">View Item</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/keychain.jpg" alt="Cute Crochet Keychain" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Cute Crochet Keychain</h3>
+                            <p class="product-price">Ksh 1,300</p>
+                            <a href="#" class="btn">View Item</a>
+                        </div>
+                    </div>
+                    <!-- Add more product cards as needed -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#" class="btn btn-disabled">&laquo; Prev</a>
+                    <a href="#" class="btn active">1</a>
+                    <a href="#" class="btn">2</a>
+                    <a href="#" class="btn">Next &raquo;</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about">
+                    <a href="index.html" class="footer-logo-link">
+                        <img src="images/Gemini_Generated_Image_eoegjueoegjueoeg.png" alt="Nassim's Stitches Logo" class="footer-logo-img">
+                        <span class="footer-site-name">Nassim's Stitches</span>
+                    </a>
+                    <p>Handcrafted crochet from the heart of Kakamega, Lurambi. Artistry in every stitch.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Follow Us</h4>
+                    <!-- Replace '#' with your actual social media links -->
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nassim's Stitches. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
