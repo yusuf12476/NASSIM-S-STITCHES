@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - Nassim's Stitches</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/Gemini_Generated_Image_eoegjueoegjueoeg.png">
     <!-- Google Fonts for an elegant look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,12 +48,12 @@
             <aside class="shop-sidebar">
                 <div class="filter-widget">
                     <h4>Categories</h4>
-                    <ul>
-                        <li><a href="#">All</a></li>
-                        <li><a href="#">Tops</a></li>
-                        <li><a href="#">Skirts</a></li>
-                        <li><a href="#">Bags</a></li>
-                        <li><a href="#">Accessories</a></li>
+                    <ul id="category-filter">
+                        <li><a href="#" data-filter="all" class="active">All</a></li>
+                        <li><a href="#" data-filter="Tops">Tops</a></li>
+                        <li><a href="#" data-filter="Skirts">Skirts</a></li>
+                        <li><a href="#" data-filter="Bags">Bags</a></li>
+                        <li><a href="#" data-filter="Accessories">Accessories</a></li>
                     </ul>
                 </div>
                 <div class="filter-widget">
@@ -80,7 +82,7 @@
                 </div>
 
                 <div class="product-grid">
-                    <div class="product-card">
+                    <div class="product-card" data-category="Bags">
                         <span class="product-badge">New</span>
                         <img src="images/WhatsApp Image 2025-12-15 at 22.31.02.jpeg" alt="Crochet Tote Bag" class="product-image">
                         <div class="product-info">
@@ -95,7 +97,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="Tops">
                         <img src="images/top.jpg" alt="Handmade Crochet Top" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Handmade Crochet Top</h3>
@@ -109,7 +111,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="Skirts">
                         <img src="images/skirt.jpg" alt="Boho Crochet Skirt" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Boho Crochet Skirt</h3>
@@ -123,7 +125,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="Accessories">
                         <img src="images/beanie.jpg" alt="Cozy Crochet Beanie" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Cozy Crochet Beanie</h3>
@@ -137,7 +139,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="Accessories">
                         <img src="images/scrunchie.jpg" alt="Velvet Crochet Scrunchie" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Velvet Crochet Scrunchie</h3>
@@ -151,7 +153,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="Bags">
                         <img src="images/handbag.jpg" alt="Chic Crochet Handbag" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Chic Crochet Handbag</h3>
@@ -165,7 +167,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="Accessories">
                         <img src="images/keychain.jpg" alt="Cute Crochet Keychain" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Cute Crochet Keychain</h3>
@@ -179,7 +181,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="Bags">
                         <img src="images/WhatsApp Image 2025-12-15 at 22.33.28.jpeg" alt="Summer Crochet Tote" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Summer Crochet Tote</h3>
@@ -193,7 +195,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="Tops">
                         <img src="images/WhatsApp Image 2025-12-15 at 22.39.21.jpeg" alt="Raffle top" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Raffle top</h3>
@@ -307,6 +309,32 @@
                 closeModal();
             }
         });
+
+        // Category filtering functionality
+        const filterLinks = document.querySelectorAll('#category-filter a');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Active link styling
+                filterLinks.forEach(l => l.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+
+                const filter = e.currentTarget.dataset.filter;
+
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+
     </script>
 
 </body>

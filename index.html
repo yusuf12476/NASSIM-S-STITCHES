@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nassim's Stitches - High-End Crochet</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/Gemini_Generated_Image_eoegjueoegjueoeg.png">
+    <link rel="icon" type="image/x-icon" href="images/Gemini_Generated_Image_eoegjueoegjueoeg.png">
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts for an elegant look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +54,7 @@
                 <div class="product-grid">
                     <!-- Display a few select products -->
                     <div class="product-card">
-                        <img src="images/tote-bag.jpg" alt="Crochet Tote Bag" class="product-image">
+                        <img src="images/tote-bag.jpg" alt="Crochet Tote Bag" class="product-image" loading="lazy">
                         <div class="product-info">
                             <h3 class="product-name">Crochet Tote Bag</h3>
                             <p class="product-price">Ksh 6,500</p>
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="images/top.jpg" alt="Handmade Crochet Top" class="product-image">
+                        <img src="images/top.jpg" alt="Handmade Crochet Top" class="product-image" loading="lazy">
                         <div class="product-info">
                             <h3 class="product-name">Handmade Crochet Top</h3>
                             <p class="product-price">Ksh 5,850</p>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="images/skirt.jpg" alt="Boho Crochet Skirt" class="product-image">
+                        <img src="images/skirt.jpg" alt="Boho Crochet Skirt" class="product-image" loading="lazy">
                         <div class="product-info">
                             <h3 class="product-name">Boho Crochet Skirt</h3>
                             <p class="product-price">Ksh 7,800</p>
@@ -122,14 +122,22 @@
     </footer>
 
     <script>
-        // Hide the splash screen after a delay
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
-            setTimeout(() => {
-                splash.style.opacity = '0';
-                // Hide it from screen readers and prevent interaction after transition
-                splash.addEventListener('transitionend', () => splash.style.visibility = 'hidden');
-            }, 1500); // Keep splash screen for 1.5 seconds
+
+            // Check if the splash screen has been shown in this session
+            if (sessionStorage.getItem('splashScreenShown')) {
+                // If it has, hide it immediately without animation
+                splash.style.display = 'none';
+            } else {
+                // If not, show it, then fade it out and set the session flag
+                sessionStorage.setItem('splashScreenShown', 'true');
+                setTimeout(() => {
+                    splash.style.opacity = '0';
+                    // After the transition, hide it completely to prevent interaction
+                    splash.addEventListener('transitionend', () => splash.style.display = 'none');
+                }, 1500); // Keep splash screen for 1.5 seconds
+            }
         });
     </script>
 

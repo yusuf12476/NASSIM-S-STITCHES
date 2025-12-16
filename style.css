@@ -321,6 +321,11 @@ img {
     color: var(--primary-pink);
 }
 
+.filter-widget li a.active {
+    color: var(--primary-pink);
+    font-weight: 700;
+}
+
 .shop-products {
     flex: 1;
 }
@@ -567,6 +572,54 @@ img {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
+    body {
+        font-size: 95%; /* Adjust base font size for better readability on small screens */
+    }
+
+    .container {
+        width: 95%; /* Use more of the screen width on mobile */
+    }
+
+    /* --- Mobile Header & Navigation --- */
+    .site-header .container {
+        flex-direction: column;
+    }
+
+    .site-header .logo img {
+        height: 70px; /* Slightly smaller logo for mobile */
+        margin-bottom: 15px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav li {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-nav a {
+        display: block;
+        padding: 12px 5px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .main-nav li:last-child a {
+        border-bottom: none;
+    }
+
+    /* --- Mobile Hero Section --- */
+    .hero-section {
+        padding: 80px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
     .about-content,
     .contact-content,
     .footer-content {
@@ -574,6 +627,11 @@ img {
         text-align: center;
         align-items: center;
     }
+
+    .shop-container {
+        flex-direction: column;
+    }
+
 
     .footer-logo-link {
         justify-content: center;
@@ -595,6 +653,16 @@ img {
 
     .about-image img:hover {
         transform: none; /* Disable hover effect on smaller screens */
+    }
+
+    .modal-content {
+        flex-direction: column;
+        width: 90%;
+        margin: 20% auto;
+    }
+
+    .modal-image-container {
+        margin-bottom: 15px;
     }
 }
 
