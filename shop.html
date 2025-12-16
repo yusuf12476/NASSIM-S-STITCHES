@@ -29,6 +29,12 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
 
@@ -337,6 +343,19 @@
 
     </script>
 
+    <script>
+        // Hamburger Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', function () {
+                mainNav.classList.toggle('is-open');
+                this.classList.toggle('is-active');
+            });
+        }
+    </script>
+
     <!-- Scroll to Top Button -->
     <a href="#" id="scrollToTopBtn" class="scroll-to-top-btn" title="Go to top"><i class="fas fa-arrow-up"></i></a>
 
@@ -356,6 +375,23 @@
             scrollToTopBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Scroll animation for product cards
+            const cardsForAnimation = document.querySelectorAll('.product-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the item is visible
+            });
+
+            cardsForAnimation.forEach(card => {
+                observer.observe(card);
             });
         }
     </script>

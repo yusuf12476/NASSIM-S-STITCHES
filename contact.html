@@ -29,6 +29,12 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
 
@@ -61,7 +67,7 @@
                         <h3>Send Us a Message</h3>
                         <!-- Functional Contact Form -->
                         <!-- IMPORTANT: Replace 'YOUR_FORM_ENDPOINT' with your actual endpoint from a service like Formspree -->
-                        <form action="https://formspree.io/f/YOUR_FORM_ENDPOINT" method="POST" class="contact-form">
+                        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ENDPOINT" method="POST" class="contact-form">
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" required>
@@ -76,6 +82,8 @@
                             </div>
                             <button type="submit" class="btn">Send Message</button>
                         </form>
+                        <!-- Container for success/error messages -->
+                        <div id="form-status"></div>
                     </div>
                 </div>
             </div>
@@ -136,6 +144,51 @@
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Hamburger Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', function () {
+                mainNav.classList.toggle('is-open');
+                this.classList.toggle('is-active');
+            });
+        }
+
+        // AJAX Contact Form Submission
+        const form = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formStatus.innerHTML = "Thanks for your submission! We'll get back to you shortly.";
+                    formStatus.className = 'success';
+                    form.reset();
+                } else {
+                    const responseData = await response.json();
+                    formStatus.innerHTML = responseData.errors ? responseData.errors.map(error => error.message).join(", ") : "Oops! There was a problem submitting your form.";
+                    formStatus.className = 'error';
+                }
+            } catch (error) {
+                formStatus.innerHTML = "Oops! There was a problem submitting your form.";
+                formStatus.className = 'error';
+            }
+        }
+
+        form.addEventListener("submit", handleSubmit);
     </script>
 
 </body>
