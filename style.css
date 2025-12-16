@@ -145,6 +145,28 @@ img {
     background-color: var(--light-accent); /* A subtle background on hover is very professional */
 }
 
+/* --- Mobile Menu Toggle (Hamburger) --- */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1010; /* Above the nav */
+    position: relative; /* For positioning bars during animation */
+    width: 45px;
+    height: 45px;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
 /* --- Buttons --- */
 .btn {
     display: inline-block;
@@ -580,35 +602,60 @@ img {
         width: 95%; /* Use more of the screen width on mobile */
     }
 
+    .menu-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    /* Animate hamburger to an 'X' */
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
     /* --- Mobile Header & Navigation --- */
     .site-header .container {
-        flex-direction: column;
+        flex-direction: row; /* Keep logo and hamburger on the same line */
     }
 
     .site-header .logo img {
         height: 70px; /* Slightly smaller logo for mobile */
-        margin-bottom: 15px;
+        margin-bottom: 0;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+    }
+
+    .main-nav.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
     .main-nav ul {
         flex-direction: column;
-        width: 100%;
-        text-align: center;
-    }
-
-    .main-nav li {
-        margin-left: 0;
-        width: 100%;
     }
 
     .main-nav a {
-        display: block;
-        padding: 12px 5px;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .main-nav li:last-child a {
-        border-bottom: none;
+        font-size: 1.8rem; /* Larger text for overlay menu */
+        padding: 15px 0;
     }
 
     /* --- Mobile Hero Section --- */
@@ -628,17 +675,22 @@ img {
         align-items: center;
     }
 
-    .shop-container {
-        flex-direction: column;
+    .footer-column {
+        min-width: 100%; /* Ensure columns take full width */
+        margin-bottom: 20px;
     }
 
+    .footer-column h4::after {
+        left: 50%; /* Center the heading underline */
+        transform: translateX(-50%);
+    }
 
     .footer-logo-link {
         justify-content: center;
     }
 
-    .footer-logo-img {
-        margin: 0 auto 15px;
+    .shop-container {
+        flex-direction: column;
     }
 
     .footer-content, .footer-column.about-us-column {
@@ -733,4 +785,33 @@ img {
 .close-button:focus {
     color: var(--primary-pink);
     text-decoration: none;
+}
+
+/* --- Scroll to Top Button --- */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-pink);
+    color: var(--white-color);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 50px;
+    z-index: 999;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+}
+
+.scroll-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top-btn:hover {
+    background-color: var(--heading-color);
 }
