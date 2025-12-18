@@ -29,6 +29,12 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-link" aria-label="View your shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
             <!-- Mobile Menu Toggle Button -->
             <button class="menu-toggle" aria-label="Open navigation menu">
                 <span class="bar"></span>
@@ -53,6 +59,13 @@
             <!-- Shop Sidebar for Filters -->
             <aside class="shop-sidebar">
                 <div class="filter-widget">
+                    <h4>Search Products</h4>
+                    <div class="search-form">
+                        <input type="search" id="search-input" placeholder="e.g. 'tote bag'">
+                        <button id="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="filter-widget">
                     <h4>Categories</h4>
                     <ul id="category-filter">
                         <li><a href="#" data-filter="all" class="active">All</a></li>
@@ -64,11 +77,11 @@
                 </div>
                 <div class="filter-widget">
                     <h4>Filter by Price</h4>
-                    <!-- A price range slider could be implemented here with JavaScript -->
-                    <ul>
-                        <li><a href="#">Under Ksh 2,000</a></li>
-                        <li><a href="#">Ksh 2,000 - Ksh 5,000</a></li>
-                        <li><a href="#">Over Ksh 5,000</a></li>
+                    <ul id="price-filter">
+                        <li><a href="#" data-filter="all">All Prices</a></li>
+                        <li><a href="#" data-filter="0-2000">Under Ksh 2,000</a></li>
+                        <li><a href="#" data-filter="2000-5000">Ksh 2,000 - Ksh 5,000</a></li>
+                        <li><a href="#" data-filter="5000-Infinity">Over Ksh 5,000</a></li>
                     </ul>
                 </div>
             </aside>
@@ -77,7 +90,7 @@
             <section class="shop-products">
                 <!-- Sorting Controls -->
                 <div class="shop-controls">
-                    <p>Showing 1–8 of 8 results</p>
+                    <p id="results-count">Showing 9 of 9 results</p>
                     <select name="orderby" class="orderby">
                         <option value="menu_order" selected="selected">Default sorting</option>
                         <option value="popularity">Sort by popularity</option>
@@ -88,7 +101,7 @@
                 </div>
 
                 <div class="product-grid">
-                    <div class="product-card" data-category="Bags">
+                    <div class="product-card" data-category="Bags" data-price="1000" data-date="2025-12-15">
                         <span class="product-badge">New</span>
                         <img src="images/WhatsApp Image 2025-12-15 at 22.31.02.jpeg" alt="Crochet Tote Bag" class="product-image">
                         <div class="product-info">
@@ -98,12 +111,13 @@
                                 data-name="Crochet Tote Bag" 
                                 data-price="Ksh 1,000" 
                                 data-img="images/WhatsApp Image 2025-12-15 at 22.31.02.jpeg"
-                                data-description="A stylish and durable tote bag, perfect for everyday use. Handcrafted with high-quality yarn.">
+                                data-description="A stylish and durable tote bag, perfect for everyday use. Handcrafted with high-quality yarn."
+                                data-id="P001">
                                 View Item
                             </button>
                         </div>
                     </div>
-                    <div class="product-card" data-category="Tops">
+                    <div class="product-card" data-category="Tops" data-price="5850" data-date="2025-12-14">
                         <img src="images/top.jpg" alt="Handmade Crochet Top" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Handmade Crochet Top</h3>
@@ -112,12 +126,13 @@
                                 data-name="Handmade Crochet Top" 
                                 data-price="Ksh 5,850" 
                                 data-img="images/top.jpg"
-                                data-description="An elegant and comfortable handmade crochet top, perfect for any occasion.">
+                                data-description="An elegant and comfortable handmade crochet top, perfect for any occasion."
+                                data-id="P002">
                                 View Item
                             </button>
                         </div>
                     </div>
-                    <div class="product-card" data-category="Skirts">
+                    <div class="product-card" data-category="Skirts" data-price="7800" data-date="2025-12-13">
                         <img src="images/skirt.jpg" alt="Boho Crochet Skirt" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Boho Crochet Skirt</h3>
@@ -126,12 +141,13 @@
                                 data-name="Boho Crochet Skirt" 
                                 data-price="Ksh 7,800" 
                                 data-img="images/skirt.jpg"
-                                data-description="A beautiful Boho-style crochet skirt that adds a touch of elegance to your wardrobe.">
+                                data-description="A beautiful Boho-style crochet skirt that adds a touch of elegance to your wardrobe."
+                                data-id="P003">
                                 View Item
                             </button>
                         </div>
                     </div>
-                    <div class="product-card" data-category="Accessories">
+                    <div class="product-card" data-category="Accessories" data-price="3250" data-date="2025-12-12">
                         <img src="images/beanie.jpg" alt="Cozy Crochet Beanie" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Cozy Crochet Beanie</h3>
@@ -140,12 +156,13 @@
                                 data-name="Cozy Crochet Beanie" 
                                 data-price="Ksh 3,250" 
                                 data-img="images/beanie.jpg"
-                                data-description="Keep warm with this cozy and stylish handmade crochet beanie.">
+                                data-description="Keep warm with this cozy and stylish handmade crochet beanie."
+                                data-id="P004">
                                 View Item
                             </button>
                         </div>
                     </div>
-                    <div class="product-card" data-category="Accessories">
+                    <div class="product-card" data-category="Accessories" data-price="1040" data-date="2025-12-11">
                         <img src="images/scrunchie.jpg" alt="Velvet Crochet Scrunchie" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Velvet Crochet Scrunchie</h3>
@@ -154,12 +171,13 @@
                                 data-name="Velvet Crochet Scrunchie" 
                                 data-price="Ksh 1,040" 
                                 data-img="images/scrunchie.jpg"
-                                data-description="A soft, velvet crochet scrunchie to add a touch of class to your hairstyle.">
+                                data-description="A soft, velvet crochet scrunchie to add a touch of class to your hairstyle."
+                                data-id="P005">
                                 View Item
                             </button>
                         </div>
                     </div>
-                    <div class="product-card" data-category="Bags">
+                    <div class="product-card" data-category="Bags" data-price="7150" data-date="2025-12-10">
                         <img src="images/handbag.jpg" alt="Chic Crochet Handbag" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Chic Crochet Handbag</h3>
@@ -168,12 +186,13 @@
                                 data-name="Chic Crochet Handbag" 
                                 data-price="Ksh 7,150" 
                                 data-img="images/handbag.jpg"
-                                data-description="A chic and fashionable crochet handbag, perfect for a day out.">
+                                data-description="A chic and fashionable crochet handbag, perfect for a day out."
+                                data-id="P006">
                                 View Item
                             </button>
                         </div>
                     </div>
-                    <div class="product-card" data-category="Accessories">
+                    <div class="product-card" data-category="Accessories" data-price="1300" data-date="2025-12-09">
                         <img src="images/keychain.jpg" alt="Cute Crochet Keychain" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Cute Crochet Keychain</h3>
@@ -182,12 +201,13 @@
                                 data-name="Cute Crochet Keychain" 
                                 data-price="Ksh 1,300" 
                                 data-img="images/keychain.jpg"
-                                data-description="A cute and unique crochet keychain to personalize your keys or bag.">
+                                data-description="A cute and unique crochet keychain to personalize your keys or bag."
+                                data-id="P007">
                                 View Item
                             </button>
                         </div>
                     </div>
-                    <div class="product-card" data-category="Bags">
+                    <div class="product-card" data-category="Bags" data-price="1000" data-date="2025-12-08">
                         <img src="images/WhatsApp Image 2025-12-15 at 22.33.28.jpeg" alt="Summer Crochet Tote" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Summer Crochet Tote</h3>
@@ -196,12 +216,13 @@
                                 data-name="Summer Crochet Tote" 
                                 data-price="Ksh 1,000" 
                                 data-img="images/WhatsApp Image 2025-12-15 at 22.33.28.jpeg"
-                                data-description="Light and breezy, this summer crochet tote is your perfect beach companion.">
+                                data-description="Light and breezy, this summer crochet tote is your perfect beach companion."
+                                data-id="P008">
                                 View Item
                             </button>
                         </div>
                     </div>
-                    <div class="product-card" data-category="Tops">
+                    <div class="product-card" data-category="Tops" data-price="700" data-date="2025-12-07">
                         <img src="images/WhatsApp Image 2025-12-15 at 22.39.21.jpeg" alt="Raffle top" class="product-image">
                         <div class="product-info">
                             <h3 class="product-name">Raffle top</h3>
@@ -210,7 +231,8 @@
                                 data-name="Raffle top" 
                                 data-price="Ksh 700" 
                                 data-img="images/WhatsApp Image 2025-12-15 at 22.39.21.jpeg"
-                                data-description="A fun and flirty raffle top, handcrafted to make a statement.">
+                                data-description="A fun and flirty raffle top, handcrafted to make a statement."
+                                data-id="P009">
                                 View Item
                             </button>
                         </div>
@@ -228,23 +250,6 @@
             </section>
         </div>
     </main>
-
-    <!-- Product Modal -->
-    <div id="product-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div class="modal-image-container">
-                <img id="modal-img" src="" alt="Product Image" class="modal-image">
-            </div>
-            <div class="modal-info">
-                <h2 id="modal-name">Product Name</h2>
-                <p id="modal-price" class="product-price">Product Price</p>
-                <p id="modal-description">Product description goes here.</p>
-                <a href="#" class="btn" style="margin-top: 20px;">Add to Cart</a>
-            </div>
-        </div>
-    </div>
-
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -255,6 +260,22 @@
                     </a>
                     <p>Handcrafted crochet from the heart of Kakamega, Lurambi. Artistry in every stitch.</p>
                 </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-image-container">
+                <img id="modal-img" src="" alt="Product Image" class="modal-image">
+            </div>
+            <div class="modal-info">
+                <h2 id="modal-name" class="product-name">Product Name</h2>
+                <p id="modal-price" class="product-price">Product Price</p>
+                <p id="modal-description">Product description goes here.</p>
+                <button id="modal-add-to-cart-btn" class="btn" style="margin-top: 20px;">Add to Cart</button>
+            </div>
+        </div>
+    </div>
                 <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul>
@@ -273,6 +294,13 @@
                         <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                     </div>
                 </div>
+                <div class="footer-column">
+                    <h4>Join Our Newsletter</h4>
+                    <p>Get updates on new arrivals and special offers.</p>
+                    <!-- input type="email" name="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Nassim's Stitches. All Rights Reserved.</p>
@@ -280,25 +308,46 @@
         </div>
     </footer>
 
+    <div id="toast-container"></div>
+
+    <script src="cart.js"></script> 
     <script>
+        // This script needs to be loaded before the modal script that uses it.
         // Modal functionality
         const modal = document.getElementById('product-modal');
         const viewItemBtns = document.querySelectorAll('.view-item-btn');
         const closeModalBtn = document.querySelector('.close-button');
+        let lastFocusedElement;
+        const addToCartBtn = document.getElementById('modal-add-to-cart-btn');
 
         // Function to open the modal and populate it with data
         const openModal = (e) => {
-            const btn = e.currentTarget;
-            document.getElementById('modal-name').textContent = btn.dataset.name;
-            document.getElementById('modal-price').textContent = btn.dataset.price;
-            document.getElementById('modal-img').src = btn.dataset.img;
-            document.getElementById('modal-description').textContent = btn.dataset.description;
+            lastFocusedElement = document.activeElement; // Save the element that was focused
+            const button = e.currentTarget;
+            const card = button.closest('.product-card'); // Get the parent product card
+            const priceValue = parseFloat(card.dataset.price); // Get the clean price from the card's data attribute
+
+            document.getElementById('modal-name').textContent = button.dataset.name;
+            document.getElementById('modal-price').textContent = button.dataset.price; // This is the display price string, e.g., "Ksh 1,000"
+            document.getElementById('modal-img').src = button.dataset.img;
+            document.getElementById('modal-description').textContent = button.dataset.description;
+            
+            // Store product data on the 'Add to Cart' button for later use
+            addToCartBtn.dataset.id = button.dataset.id;
+            addToCartBtn.dataset.name = button.dataset.name;
+            addToCartBtn.dataset.price = priceValue;
+            addToCartBtn.dataset.img = button.dataset.img;
+
             modal.classList.add('show');
+            closeModalBtn.focus(); // Move focus to the close button
         };
 
         // Function to close the modal
         const closeModal = () => {
             modal.classList.remove('show');
+            if (lastFocusedElement) {
+                lastFocusedElement.focus(); // Return focus to the previously focused element
+            }
         };
 
         // Add event listeners to all "View Item" buttons
@@ -306,8 +355,27 @@
             btn.addEventListener('click', openModal);
         });
 
+        // Add event listener for the modal's "Add to Cart" button
+        addToCartBtn.addEventListener('click', () => {
+            const product = {
+                id: addToCartBtn.dataset.id,
+                name: addToCartBtn.dataset.name,
+                price: parseFloat(addToCartBtn.dataset.price),
+                img: addToCartBtn.dataset.img,
+            };
+            window.addToCart(product); // This function is in cart.js
+            closeModal();
+        });
+
         // Add event listener to the close button
         closeModalBtn.addEventListener('click', closeModal);
+
+        // Add event listener for the Escape key to close the modal
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
 
         // Add event listener to close modal when clicking outside the content
         window.addEventListener('click', (e) => {
@@ -316,28 +384,121 @@
             }
         });
 
-        // Category filtering functionality
-        const filterLinks = document.querySelectorAll('#category-filter a');
-        const productCards = document.querySelectorAll('.product-card');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+    <script>
+        // --- Shop Filtering and Sorting ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const productGrid = document.querySelector('.product-grid');
+            const productCards = Array.from(document.querySelectorAll('.product-card'));
+            const categoryFilter = document.getElementById('category-filter');
+            const priceFilter = document.getElementById('price-filter');
+            const sortSelect = document.querySelector('.orderby');
+            const resultsCount = document.getElementById('results-count');
+            const searchInput = document.getElementById('search-input');
 
-        filterLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
+            // Create a comprehensive data source from the DOM
+            const allProductsData = productCards.map(card => ({
+                element: card,
+                name: card.querySelector('.product-name').textContent,
+                description: card.dataset.description || '',
+                category: card.dataset.category,
+                price: parseFloat(card.dataset.price),
+                date: card.dataset.date,
+            }));
 
-                // Active link styling
-                filterLinks.forEach(l => l.classList.remove('active'));
-                e.currentTarget.classList.add('active');
+            // Setup Fuse.js
+            const fuse = new Fuse(allProductsData, {
+                keys: ['name', 'description', 'category'],
+                includeScore: true,
+                threshold: 0.4,
+            });
 
-                const filter = e.currentTarget.dataset.filter;
+            let currentCategory = 'all';
+            let currentPriceRange = 'all';
+            let searchQuery = '';
 
-                productCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
+            const updateGrid = () => {
+                let productsToShow = allProductsData;
+
+                // 1. Apply search if there's a query
+                if (searchQuery.trim() !== '') {
+                    productsToShow = fuse.search(searchQuery).map(result => result.item);
+                }
+
+                // 2. Apply filters (category and price)
+                const filteredProducts = productsToShow.filter(product => {
+                    const categoryMatch = currentCategory === 'all' || product.category === currentCategory;
+                    
+                    const price = product.price;
+                    const [min, max] = currentPriceRange.split('-').map(parseFloat);
+                    const priceMatch = currentPriceRange === 'all' || (price >= min && price <= (max || Infinity));
+
+                    return categoryMatch && priceMatch;
+                });
+
+                // 3. Sort the filtered products
+                const sortValue = sortSelect.value;
+                filteredProducts.sort((a, b) => {
+                    const priceA = a.price;
+                    const priceB = b.price;
+                    const dateA = new Date(a.date);
+                    const dateB = new Date(b.date);
+
+                    switch (sortValue) {
+                        case 'price':
+                            return priceA - priceB;
+                        case 'price-desc':
+                            return priceB - priceA;
+                        case 'date':
+                            return dateB - dateA;
+                        default:
+                            return 0; // 'menu_order' or 'popularity' can be default
                     }
                 });
+
+                // 4. Display results
+                productGrid.innerHTML = '';
+                filteredProducts.forEach(product => productGrid.appendChild(product.element));
+
+                // 5. Update count
+                resultsCount.textContent = `Showing ${filteredProducts.length} of ${allProductsData.length} results`;
+            };
+
+            // Category filter listener
+            categoryFilter.addEventListener('click', e => {
+                if (e.target.tagName === 'A') {
+                    e.preventDefault();
+                    categoryFilter.querySelector('.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    currentCategory = e.target.dataset.filter;
+                    updateGrid();
+                }
             });
+
+            // Price filter listener
+            priceFilter.addEventListener('click', e => {
+                if (e.target.tagName === 'A') {
+                    e.preventDefault();
+                    // Simple active state - can be improved
+                    priceFilter.querySelectorAll('a').forEach(a => a.style.fontWeight = 'normal');
+                    e.target.style.fontWeight = 'bold';
+                    currentPriceRange = e.target.dataset.filter;
+                    updateGrid();
+                }
+            });
+
+            // Sort listener
+            sortSelect.addEventListener('change', updateGrid);
+
+            // Search listener
+            searchInput.addEventListener('input', e => {
+                searchQuery = e.target.value;
+                updateGrid();
+            });
+
+            // Initial call to set up the grid
+            updateGrid();
         });
 
 
@@ -349,7 +510,7 @@
         const mainNav = document.querySelector('.main-nav');
 
         if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', function () {
+            menuToggle.addEventListener('click', function() {
                 mainNav.classList.toggle('is-open');
                 this.classList.toggle('is-active');
             });

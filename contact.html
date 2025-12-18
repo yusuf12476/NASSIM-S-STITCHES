@@ -29,6 +29,12 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-link" aria-label="View your shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
             <!-- Mobile Menu Toggle Button -->
             <button class="menu-toggle" aria-label="Open navigation menu">
                 <span class="bar"></span>
@@ -65,9 +71,8 @@
                     </div>
                     <div class="contact-form-container">
                         <h3>Send Us a Message</h3>
-                        <!-- Functional Contact Form -->
-                        <!-- IMPORTANT: Replace 'YOUR_FORM_ENDPOINT' with your actual endpoint from a service like Formspree -->
-                        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ENDPOINT" method="POST" class="contact-form">
+                        <!-- TODO: Replace the placeholder action URL below with your actual Formspree endpoint for contact messages. -->
+                        <form id="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_CONTACT_FORM_ID" method="POST" class="contact-form">
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" required>
@@ -118,6 +123,15 @@
                         <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                     </div>
                 </div>
+                <div class="footer-column">
+                    <h4>Join Our Newsletter</h4>
+                    <p>Get updates on new arrivals and special offers.</p>
+                    <!-- Replace with your Formspree endpoint for the newsletter -->
+                    <form action="https://formspree.io/f/YOUR_NEWSLETTER_ENDPOINT" method="POST" class="newsletter-form">
+                        <input type="email" name="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Nassim's Stitches. All Rights Reserved.</p>
@@ -128,6 +142,9 @@
     <!-- Scroll to Top Button -->
     <a href="#" id="scrollToTopBtn" class="scroll-to-top-btn" title="Go to top"><i class="fas fa-arrow-up"></i></a>
 
+    <div id="toast-container"></div>
+
+    <script src="cart.js"></script>
     <script>
         // Scroll to top button functionality
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');

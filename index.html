@@ -35,8 +35,14 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-link" aria-label="View your shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
             <!-- Mobile Menu Toggle Button -->
-            <button class="menu-toggle" aria-label="Open navigation menu">
+            <button class="menu-toggle" aria-label="Open navigation menu" aria-controls="main-nav" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -60,7 +66,11 @@
                 <div class="product-grid">
                     <!-- Display a few select products -->
                     <div class="product-card">
-                        <img src="images/tote-bag.jpg" alt="Crochet Tote Bag" class="product-image" loading="lazy">
+                        <picture>
+                            <source srcset="images/tote-bag.webp" type="image/webp">
+                            <source srcset="images/tote-bag.jpg" type="image/jpeg">
+                            <img src="images/tote-bag.jpg" alt="Crochet Tote Bag" class="product-image" loading="lazy">
+                        </picture>
                         <div class="product-info">
                             <h3 class="product-name">Crochet Tote Bag</h3>
                             <p class="product-price">Ksh 6,500</p>
@@ -68,7 +78,11 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="images/top.jpg" alt="Handmade Crochet Top" class="product-image" loading="lazy">
+                        <picture>
+                            <source srcset="images/top.webp" type="image/webp">
+                            <source srcset="images/top.jpg" type="image/jpeg">
+                            <img src="images/top.jpg" alt="Handmade Crochet Top" class="product-image" loading="lazy">
+                        </picture>
                         <div class="product-info">
                             <h3 class="product-name">Handmade Crochet Top</h3>
                             <p class="product-price">Ksh 5,850</p>
@@ -76,7 +90,11 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="images/skirt.jpg" alt="Boho Crochet Skirt" class="product-image" loading="lazy">
+                        <picture>
+                            <source srcset="images/skirt.webp" type="image/webp">
+                            <source srcset="images/skirt.jpg" type="image/jpeg">
+                            <img src="images/skirt.jpg" alt="Boho Crochet Skirt" class="product-image" loading="lazy">
+                        </picture>
                         <div class="product-info">
                             <h3 class="product-name">Boho Crochet Skirt</h3>
                             <p class="product-price">Ksh 7,800</p>
@@ -120,6 +138,15 @@
                         <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                     </div>
                 </div>
+                <div class="footer-column">
+                    <h4>Join Our Newsletter</h4>
+                    <p>Get updates on new arrivals and special offers.</p>
+                    <!-- TODO: Replace the placeholder action URL below with your actual Formspree endpoint for the newsletter. -->
+                    <form action="https://formspree.io/f/REPLACE_WITH_YOUR_NEWSLETTER_FORM_ID" method="POST" class="newsletter-form">
+                        <input type="email" name="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Nassim's Stitches. All Rights Reserved.</p>
@@ -127,6 +154,9 @@
         </div>
     </footer>
 
+    <div id="toast-container"></div>
+
+    <script src="cart.js"></script>
     <script>
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
@@ -174,6 +204,7 @@
         if (menuToggle && mainNav) {
             menuToggle.addEventListener('click', function () {
                 mainNav.classList.toggle('is-open');
+                this.setAttribute('aria-expanded', mainNav.classList.contains('is-open'));
                 this.classList.toggle('is-active');
             });
         }
